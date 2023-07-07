@@ -1,0 +1,52 @@
+@tailwind utilities;
+
+@layer utilities {
+  .block-hidden {
+    @apply block invisible opacity-0;
+  }
+
+  .md-show-block {
+    @apply hidden md:block;
+  }
+
+  .md-show-inblock {
+    @apply hidden md:inline-block;
+  }
+
+  .w-h-full {
+    @apply w-full h-full;
+  }
+
+  .sticky-top {
+    @apply sticky top-0;
+  }
+
+  .glassy-primary-background {
+    @apply bg-grey-900/60 backdrop-filter backdrop-blur-sm;
+  }
+
+  /* Flex shortcuts */
+  .f-between-center {
+    @apply flex justify-between items-center;
+  }
+
+  .f-center {
+    @apply flex justify-center items-center;
+  }
+
+  .f-justify-center {
+    @apply flex justify-center;
+  }
+
+  .f-items-center {
+    @apply flex items-center;
+  }
+
+  .f-row {
+    @apply flex flex-row;
+  }
+
+  .f-col {
+    @apply flex flex-col;
+  }
+}

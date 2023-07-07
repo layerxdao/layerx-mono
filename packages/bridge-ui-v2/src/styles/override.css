@@ -1,0 +1,23 @@
+/**************************
+ * Remove Arrows/Spinners *
+ **************************/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  @apply appearance-none m-0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/**
+ * Overrides the dafault color for the overlay component used 
+ * in DaisyUI's drawer. Unfortunately cannot be done via variables
+ */
+.drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
+  /* Primary background: '#0B101B' => grey-900 */
+  background-color: hsl(221, 42%, 7%);
+}

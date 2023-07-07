@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "bridge": "Bridge",
+    "faucet": "Faucet",
+    "activities": "Activities",
+    "explorer": "Explorer",
+    "guide": "Guide"
+  },
+
+  "bridge": {
+    "title": "Bridge",
+    "subtitle": "Send your assets across chains.",
+    "button": {
+      "approve": "Approve",
+      "bridge": "Bridge"
+    }
+  },
+
+  "processing_fee": {
+    "title": "Processing fee",
+    "link": "Customise fee",
+    "recommended": {
+      "label": "Recommended",
+      "calculating": "Calculating",
+      "error": "Error calculating"
+    },
+    "none": {
+      "label": "None",
+      "text": "Use ETH to manually claim your bridged token later"
+    },
+    "custom": {
+      "label": "Custom",
+      "text": "Customize your processing fee"
+    }
+  },
+
+  "activities": {
+    "title": "Activities",
+    "subtitle": "Track your bridge transactions here.",
+    "header": {
+      "explorer": "Explorer link",
+      "status": "Status"
+    },
+    "link.explorer": "View details",
+    "no_transactions": "No transactions yet",
+    "button": {
+      "claim": "Claim",
+      "retry": "Retry",
+      "release": "Release"
+    },
+    "status": {
+      "initiated": "Initiated",
+      "pending": "Pending",
+      "claimed": "Claimed",
+      "failed": "Failed"
+    }
+  },
+
+  "faucet": {
+    "title": "Faucet",
+    "subtitle": "Mint test tokens.",
+    "button.mint": "Mint",
+    "message.warning": "To request Test Token, you need to mint it on Sepolia. If you are currently on Taiko, please switch your network first. Additionally, ensure that you have a small amount of ETH in your Sepolia wallet to complete the transaction."
+  },
+
+  "token_dropdown": {
+    "placeholder": "Select token"
+  },
+
+  "amount_input": {
+    "label": "Amount",
+    "balance": "Balance",
+    "button.max": "Max"
+  },
+
+  "chain_selector": {
+    "placeholder": "Select chain",
+    "currently_on": "You are currently on"
+  },
+
+  "chain": {
+    "to": "To",
+    "from": "From"
+  },
+
+  "custom_recipient": {
+    "placeholder": "Add custom recipient"
+  },
+
+  "wallet": {
+    "connect": "Connect wallet",
+    "status": {
+      "disconnected": "Disconnected",
+      "connected": "Connected",
+      "connecting": "Connecting"
+    }
+  }
+}

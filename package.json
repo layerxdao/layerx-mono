@@ -1,0 +1,9 @@
+{
+  "name": "layerx-mono",
+  "version": "0.15.0",
+  "private": true,
+  "devDependencies": {
+    "lefthook": "^1.4.0",
+    "prettier": "^2.8.8"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "index": {
+    "title": "Hello 👋"
+  },
+  "guides": {
+    "title": "Guides"
+  },
+  "reference": {
+    "title": "Reference"
+  },
+  "concepts": {
+    "title": "Concepts"
+  },
+  "resources": {
+    "title": "Resources"
+  }
+}

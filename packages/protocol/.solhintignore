@@ -1,0 +1,7 @@
+node_modules/
+lib/
+contracts/test/TestLibRLPReader.sol
+contracts/test/TestLibRLPWriter.sol
+**/contracts/thirdparty/**/*.sol
+test/GasComparison.t.sol
+test/TestLn.sol
