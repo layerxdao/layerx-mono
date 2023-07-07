@@ -61,7 +61,7 @@ contract TaikoL1 is
     }
 
     /**
-     * Propose a Taiko L2 block.
+     * Propose a LayerX L2 block.
      *
      * @param input An abi-encoded BlockMetadataInput that the actual L2
      *        block header must satisfy.

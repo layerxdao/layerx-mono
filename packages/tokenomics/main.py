@@ -379,7 +379,7 @@ def simulate(config, days):
 
 if __name__ == "__main__":
     env = sim.Environment(trace=False)
-    st.title("Taiko Block Fee/Reward Simulation")
+    st.title("LayerX Block Fee/Reward Simulation")
 
     presents = [p0, cbvp1, cbvp2, vbcp1, vbcp2, vbvps1, vbvps2]
     st.markdown("## Configs")

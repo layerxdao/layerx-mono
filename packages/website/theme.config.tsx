@@ -34,7 +34,7 @@ export default {
     return (
       <>
         <meta property="og:url" content={`https://layerx.build${asPath}`} />
-        <meta property="og:title" content={frontMatter.title || "Taiko"} />
+        <meta property="og:title" content={frontMatter.title || "LayerX"} />
         <meta
           property="og:description"
           content={
@@ -67,7 +67,7 @@ export default {
   },
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – Taiko",
+      titleTemplate: "%s – LayerX",
     };
   },
 };

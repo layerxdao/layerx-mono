@@ -98,7 +98,7 @@ contract DeployOnL1 is Script {
                 taikoToken.init.selector,
                 abi.encode(
                     addressManagerProxy,
-                    "Taiko Token",
+                    "LayerX Token",
                     "TKO",
                     premintRecipients,
                     premintAmounts

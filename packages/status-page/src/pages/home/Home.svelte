@@ -56,7 +56,7 @@
 </script>
 
 <div class="text-center">
-  <h1 class="text-2xl">Taiko Protocol Status</h1>
+  <h1 class="text-2xl">LayerX Protocol Status</h1>
   <h2 class={enableL3 ? "cursor-pointer" : ""} on:click={toggleLayer}>
     {layerToDisplayName($layer)}
   </h2>

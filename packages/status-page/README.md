@@ -1,6 +1,6 @@
 # Status Page
 
-Taiko status page helps to show the current status of the network.
+LayerX status page helps to show the current status of the network.
 
 ## Pre-installation
 

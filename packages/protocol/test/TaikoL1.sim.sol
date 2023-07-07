@@ -49,7 +49,7 @@ contract TaikoL1Simulation is TaikoL1TestBase {
     //////////////////////////////////////////
     // This means block proposals will be averaged out (long term if random
     // function is random enough) to 18s
-    // It is fine it simulates that we do not necessarily put Taiko block at
+    // It is fine it simulates that we do not necessarily put LayerX block at
     // every 12s, but on average around every x1.5 of ETH block
     // Meaninig we have less blocks / sec. (We should test what happens if
     // quicker!)

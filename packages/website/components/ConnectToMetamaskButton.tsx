@@ -1,7 +1,7 @@
 import { taikoChainConfig } from "../constants/taikoChainConfig";
 
 type ConnectButtonProps = {
-  network: "Sepolia" | "Taiko";
+  network: "Sepolia" | "LayerX";
 };
 
 async function ConnectToMetamask(network: ConnectButtonProps["network"]) {

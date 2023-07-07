@@ -14,13 +14,13 @@ const features = [
   {
     name: "Open source",
     description:
-      "Taiko's code is open source and available on GitHub. Free to use and modify the source code with the permissive license.",
+      "LayerX's code is open source and available on GitHub. Free to use and modify the source code with the permissive license.",
     icon: ScaleIcon,
   },
   {
     name: "Decentralized",
     description:
-      "Decentralized and permissionless nodes, proposers, and provers. Anyone can participate in Taiko.",
+      "Decentralized and permissionless nodes, proposers, and provers. Anyone can participate in LayerX.",
     icon: GlobeAltIcon,
   },
 ];

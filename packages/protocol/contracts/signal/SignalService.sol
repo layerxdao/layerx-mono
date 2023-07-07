@@ -79,7 +79,7 @@ contract SignalService is ISignalService, EssentialContract {
 
         SignalProof memory sp = abi.decode(proof, (SignalProof));
 
-        // Resolve the TaikoL1 or TaikoL2 contract if on Ethereum or Taiko.
+        // Resolve the TaikoL1 or TaikoL2 contract if on Ethereum or LayerX.
         bytes32 syncedSignalRoot = ICrossChainSync(resolve("taiko", false))
             .getCrossChainSignalRoot(sp.height);
 

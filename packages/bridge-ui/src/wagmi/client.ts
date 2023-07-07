@@ -92,7 +92,7 @@ export const client = createClient({
     }),
     new CoinbaseWalletConnector({
       chains,
-      options: { appName: 'Taiko Bridge' },
+      options: { appName: 'LayerX Bridge' },
     }),
   ].filter(Boolean), // remove nulls
 });

@@ -514,7 +514,7 @@
 <span class="term-fg32">+	Withdrawals     []*types.Withdrawal `json:&quot;withdrawals&quot;`</span>
 <span class="term-fg32">+	TxHash          common.Hash         `json:&quot;txHash&quot;`          &#47;&#47; CHANGE(taiko): allow passing txHash directly instead of transactions list</span>
 <span class="term-fg32">+	WithdrawalsHash common.Hash         `json:&quot;withdrawalsHash&quot;` &#47;&#47; CHANGE(taiko): allow passing WithdrawalsHash directly instead of withdrawals</span>
-<span class="term-fg32">+	TaikoBlock      bool                &#47;&#47; CHANGE(taiko): whether this is a Taiko L2 block, only used by ExecutableDataToBlock</span>
+<span class="term-fg32">+	TaikoBlock      bool                &#47;&#47; CHANGE(taiko): whether this is a LayerX L2 block, only used by ExecutableDataToBlock</span>
  }
 &nbsp;
  &#47;&#47; JSON type overrides for executableData.
@@ -629,7 +629,7 @@
  	}
  	backend, eth := utils.RegisterEthService(stack, &amp;cfg.Eth)
 &nbsp;
-<span class="term-fg32">+	&#47;&#47; CHANGE(TAIKO): register Taiko RPC APIs.</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(TAIKO): register LayerX RPC APIs.</span>
 <span class="term-fg32">+	utils.RegisterTaikoAPIs(stack, &amp;cfg.Eth, eth)</span>
 <span class="term-fg32">+</span>
  	&#47;&#47; Configure log filter RPC API.
@@ -693,11 +693,11 @@
 <span class="term-fg32">+var (</span>
 <span class="term-fg32">+	TaikoFlag = cli.BoolFlag{</span>
 <span class="term-fg32">+		Name:  &quot;taiko&quot;,</span>
-<span class="term-fg32">+		Usage: &quot;Taiko network&quot;,</span>
+<span class="term-fg32">+		Usage: &quot;LayerX network&quot;,</span>
 <span class="term-fg32">+	}</span>
 <span class="term-fg32">+)</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+&#47;&#47; RegisterTaikoAPIs initializes and registers the Taiko RPC APIs.</span>
+<span class="term-fg32">+&#47;&#47; RegisterTaikoAPIs initializes and registers the LayerX RPC APIs.</span>
 <span class="term-fg32">+func RegisterTaikoAPIs(stack *node.Node, cfg *ethconfig.Config, backend *eth.Ethereum) {</span>
 <span class="term-fg32">+	if os.Getenv(&quot;TAIKO_TEST&quot;) != &quot;&quot; {</span>
 <span class="term-fg32">+		return</span>
@@ -756,7 +756,7 @@
  		metricsFlags,
  	)
 &nbsp;
-<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): append Taiko flags into the original GETH flags</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): append LayerX flags into the original GETH flags</span>
 <span class="term-fg32">+	app.Flags = append(app.Flags, &amp;utils.TaikoFlag)</span>
 <span class="term-fg32">+</span>
  	app.Before = func(ctx *cli.Context) error {
@@ -806,7 +806,7 @@
 &nbsp;
  	&#47;&#47; Override any default configs for hard coded networks.
  	switch {
-<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): when --taiko flag is set, use the Taiko genesis.</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): when --taiko flag is set, use the LayerX genesis.</span>
 <span class="term-fg32">+	case ctx.IsSet(TaikoFlag.Name):</span>
 <span class="term-fg32">+		cfg.Genesis = core.TaikoGenesisBlock(cfg.NetworkId)</span>
  	case ctx.Bool(MainnetFlag.Name):
@@ -870,7 +870,7 @@
     </div>
 
     <div class="row forkdef-content collapse  border-1 ps-3 my-3" id="id-f57ff33b7ad0d4cf0ce04810">
-        <div><p>This is our Taiko consensus engine, built for L2 rollup.</p>
+        <div><p>This is our LayerX consensus engine, built for L2 rollup.</p>
 </div>
         <div>
             
@@ -942,7 +942,7 @@
 <span class="term-fg32">+</span>
 <span class="term-fg32">+	genesis    *core.Genesis</span>
 <span class="term-fg32">+	txs        []*types.Transaction</span>
-<span class="term-fg32">+	testEngine *taiko.Taiko</span>
+<span class="term-fg32">+	testEngine *taiko.LayerX</span>
 <span class="term-fg32">+)</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+func init() {</span>
@@ -950,7 +950,7 @@
 <span class="term-fg32">+	config.GrayGlacierBlock = nil</span>
 <span class="term-fg32">+	config.ArrowGlacierBlock = nil</span>
 <span class="term-fg32">+	config.Ethash = nil</span>
-<span class="term-fg32">+	config.Taiko = true</span>
+<span class="term-fg32">+	config.LayerX = true</span>
 <span class="term-fg32">+	testEngine = taiko.New()</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+	genesis = &amp;core.Genesis{</span>
@@ -1017,7 +1017,7 @@
 <span class="term-fg32">+		t.Fatalf(&quot;can&#39;t import test blocks: %v&quot;, err)</span>
 <span class="term-fg32">+	}</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+	if _, ok := ethservice.Engine().(*taiko.Taiko); !ok {</span>
+<span class="term-fg32">+	if _, ok := ethservice.Engine().(*taiko.LayerX); !ok {</span>
 <span class="term-fg32">+		t.Fatalf(&quot;not use taiko engine&quot;)</span>
 <span class="term-fg32">+	}</span>
 <span class="term-fg32">+</span>
@@ -1193,28 +1193,28 @@
 <span class="term-fg32">+	ErrEmptyWithdrawalsHash = errors.New(&quot;withdrawals hash missing&quot;)</span>
 <span class="term-fg32">+)</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+&#47;&#47; Taiko is a consensus engine used by L2 rollup.</span>
-<span class="term-fg32">+type Taiko struct{}</span>
+<span class="term-fg32">+&#47;&#47; LayerX is a consensus engine used by L2 rollup.</span>
+<span class="term-fg32">+type LayerX struct{}</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+var defaultTaiko = new(Taiko)</span>
+<span class="term-fg32">+var defaultTaiko = new(LayerX)</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+func New() *Taiko {</span>
+<span class="term-fg32">+func New() *LayerX {</span>
 <span class="term-fg32">+	return defaultTaiko</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; check all method stubs for interface `Engine` without affect performance.</span>
-<span class="term-fg32">+var _ consensus.Engine = (*Taiko)(nil)</span>
+<span class="term-fg32">+var _ consensus.Engine = (*LayerX)(nil)</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; Author retrieves the Ethereum address of the account that minted the given</span>
 <span class="term-fg32">+&#47;&#47; block, who proposes the block (not the prover).</span>
-<span class="term-fg32">+func (t *Taiko) Author(header *types.Header) (common.Address, error) {</span>
+<span class="term-fg32">+func (t *LayerX) Author(header *types.Header) (common.Address, error) {</span>
 <span class="term-fg32">+	return header.Coinbase, nil</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; VerifyHeader checks whether a header conforms to the consensus rules of a</span>
 <span class="term-fg32">+&#47;&#47; given engine. Verifying the seal may be done optionally here, or explicitly</span>
 <span class="term-fg32">+&#47;&#47; via the VerifySeal method.</span>
-<span class="term-fg32">+func (t *Taiko) VerifyHeader(chain consensus.ChainHeaderReader, header *types.Header, seal bool) error {</span>
+<span class="term-fg32">+func (t *LayerX) VerifyHeader(chain consensus.ChainHeaderReader, header *types.Header, seal bool) error {</span>
 <span class="term-fg32">+	&#47;&#47; Short circuit if the header is known, or its parent not</span>
 <span class="term-fg32">+	number := header.Number.Uint64()</span>
 <span class="term-fg32">+	if chain.GetHeader(header.Hash(), number) != nil {</span>
@@ -1232,7 +1232,7 @@
 <span class="term-fg32">+&#47;&#47; concurrently. The method returns a quit channel to abort the operations and</span>
 <span class="term-fg32">+&#47;&#47; a results channel to retrieve the async verifications (the order is that of</span>
 <span class="term-fg32">+&#47;&#47; the input slice).</span>
-<span class="term-fg32">+func (t *Taiko) VerifyHeaders(chain consensus.ChainHeaderReader, headers []*types.Header, seals []bool) (chan&lt;- struct{}, &lt;-chan error) {</span>
+<span class="term-fg32">+func (t *LayerX) VerifyHeaders(chain consensus.ChainHeaderReader, headers []*types.Header, seals []bool) (chan&lt;- struct{}, &lt;-chan error) {</span>
 <span class="term-fg32">+	&#47;&#47; Spawn as many workers as allowed threads</span>
 <span class="term-fg32">+	workers := runtime.GOMAXPROCS(0)</span>
 <span class="term-fg32">+	if len(headers) &lt; workers {</span>
@@ -1286,7 +1286,7 @@
 <span class="term-fg32">+	return abort, errorsOut</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+func (t *Taiko) verifyHeader(chain consensus.ChainHeaderReader, header, parent *types.Header, seal bool, unixNow int64) error {</span>
+<span class="term-fg32">+func (t *LayerX) verifyHeader(chain consensus.ChainHeaderReader, header, parent *types.Header, seal bool, unixNow int64) error {</span>
 <span class="term-fg32">+	if header.Time &gt; uint64(unixNow) {</span>
 <span class="term-fg32">+		return consensus.ErrFutureBlock</span>
 <span class="term-fg32">+	}</span>
@@ -1339,7 +1339,7 @@
 <span class="term-fg32">+	return nil</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+func (t *Taiko) verifyHeaderWorker(chain consensus.ChainHeaderReader, headers []*types.Header, seals []bool, index int, unixNow int64) error {</span>
+<span class="term-fg32">+func (t *LayerX) verifyHeaderWorker(chain consensus.ChainHeaderReader, headers []*types.Header, seals []bool, index int, unixNow int64) error {</span>
 <span class="term-fg32">+	var parent *types.Header</span>
 <span class="term-fg32">+	if index == 0 {</span>
 <span class="term-fg32">+		parent = chain.GetHeader(headers[0].ParentHash, headers[0].Number.Uint64()-1)</span>
@@ -1357,7 +1357,7 @@
 <span class="term-fg32">+&#47;&#47; rules of a given engine.</span>
 <span class="term-fg32">+&#47;&#47;</span>
 <span class="term-fg32">+&#47;&#47; always returning an error for any uncles as this consensus mechanism doesn&#39;t permit uncles.</span>
-<span class="term-fg32">+func (t *Taiko) VerifyUncles(chain consensus.ChainReader, block *types.Block) error {</span>
+<span class="term-fg32">+func (t *LayerX) VerifyUncles(chain consensus.ChainReader, block *types.Block) error {</span>
 <span class="term-fg32">+	if len(block.Uncles()) &gt; 0 {</span>
 <span class="term-fg32">+		return ErrUnclesNotEmpty</span>
 <span class="term-fg32">+	}</span>
@@ -1367,7 +1367,7 @@
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; Prepare initializes the consensus fields of a block header according to the</span>
 <span class="term-fg32">+&#47;&#47; rules of a particular engine. The changes are executed inline.</span>
-<span class="term-fg32">+func (t *Taiko) Prepare(chain consensus.ChainHeaderReader, header *types.Header) error {</span>
+<span class="term-fg32">+func (t *LayerX) Prepare(chain consensus.ChainHeaderReader, header *types.Header) error {</span>
 <span class="term-fg32">+	parent := chain.GetHeader(header.ParentHash, header.Number.Uint64()-1)</span>
 <span class="term-fg32">+	if parent == nil {</span>
 <span class="term-fg32">+		return consensus.ErrUnknownAncestor</span>
@@ -1381,7 +1381,7 @@
 <span class="term-fg32">+&#47;&#47;</span>
 <span class="term-fg32">+&#47;&#47; Note: The block header and state database might be updated to reflect any</span>
 <span class="term-fg32">+&#47;&#47; consensus rules that happen at finalization (e.g. block rewards).</span>
-<span class="term-fg32">+func (t *Taiko) Finalize(chain consensus.ChainHeaderReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, uncles []*types.Header, withdrawals []*types.Withdrawal) {</span>
+<span class="term-fg32">+func (t *LayerX) Finalize(chain consensus.ChainHeaderReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, uncles []*types.Header, withdrawals []*types.Withdrawal) {</span>
 <span class="term-fg32">+	&#47;&#47; no block rewards in l2</span>
 <span class="term-fg32">+	header.UncleHash = types.CalcUncleHash(nil)</span>
 <span class="term-fg32">+	header.Difficulty = common.Big0</span>
@@ -1397,7 +1397,7 @@
 <span class="term-fg32">+&#47;&#47;</span>
 <span class="term-fg32">+&#47;&#47; Note: The block header and state database might be updated to reflect any</span>
 <span class="term-fg32">+&#47;&#47; consensus rules that happen at finalization (e.g. block rewards).</span>
-<span class="term-fg32">+func (t *Taiko) FinalizeAndAssemble(chain consensus.ChainHeaderReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, uncles []*types.Header, receipts []*types.Receipt, withdrawals []*types.Withdrawal) (*types.Block, error) {</span>
+<span class="term-fg32">+func (t *LayerX) FinalizeAndAssemble(chain consensus.ChainHeaderReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, uncles []*types.Header, receipts []*types.Receipt, withdrawals []*types.Withdrawal) (*types.Block, error) {</span>
 <span class="term-fg32">+	if withdrawals == nil {</span>
 <span class="term-fg32">+		withdrawals = make([]*types.Withdrawal, 0)</span>
 <span class="term-fg32">+	}</span>
@@ -1414,7 +1414,7 @@
 <span class="term-fg32">+&#47;&#47;</span>
 <span class="term-fg32">+&#47;&#47; Note, the method returns immediately and will send the result async. More</span>
 <span class="term-fg32">+&#47;&#47; than one result may also be returned depending on the consensus algorithm.</span>
-<span class="term-fg32">+func (t *Taiko) Seal(chain consensus.ChainHeaderReader, block *types.Block, results chan&lt;- *types.Block, stop &lt;-chan struct{}) error {</span>
+<span class="term-fg32">+func (t *LayerX) Seal(chain consensus.ChainHeaderReader, block *types.Block, results chan&lt;- *types.Block, stop &lt;-chan struct{}) error {</span>
 <span class="term-fg32">+	header := block.Header()</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+	&#47;&#47; Sealing the genesis block is not supported</span>
@@ -1435,24 +1435,24 @@
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; SealHash returns the hash of a block prior to it being sealed.</span>
-<span class="term-fg32">+func (t *Taiko) SealHash(header *types.Header) common.Hash {</span>
+<span class="term-fg32">+func (t *LayerX) SealHash(header *types.Header) common.Hash {</span>
 <span class="term-fg32">+	&#47;&#47; Keccak(rlp(header))</span>
 <span class="term-fg32">+	return header.Hash()</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; CalcDifficulty is the difficulty adjustment algorithm. It returns the difficulty</span>
 <span class="term-fg32">+&#47;&#47; that a new block should have.</span>
-<span class="term-fg32">+func (t *Taiko) CalcDifficulty(chain consensus.ChainHeaderReader, time uint64, parent *types.Header) *big.Int {</span>
+<span class="term-fg32">+func (t *LayerX) CalcDifficulty(chain consensus.ChainHeaderReader, time uint64, parent *types.Header) *big.Int {</span>
 <span class="term-fg32">+	return common.Big0</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; APIs returns the RPC APIs this consensus engine provides.</span>
-<span class="term-fg32">+func (t *Taiko) APIs(chain consensus.ChainHeaderReader) []rpc.API {</span>
+<span class="term-fg32">+func (t *LayerX) APIs(chain consensus.ChainHeaderReader) []rpc.API {</span>
 <span class="term-fg32">+	return nil</span>
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; Close terminates any background threads maintained by the consensus engine.</span>
-<span class="term-fg32">+func (t *Taiko) Close() error {</span>
+<span class="term-fg32">+func (t *LayerX) Close() error {</span>
 <span class="term-fg32">+	return nil</span>
 <span class="term-fg32">+}</span></div>
     </div>
@@ -1604,7 +1604,7 @@
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; PoolContentSplitter is responsible for splitting the pool content</span>
 <span class="term-fg32">+&#47;&#47; which fetched from a `txpool_content` RPC call response into several smaller transactions lists</span>
-<span class="term-fg32">+&#47;&#47; and make sure each splitted list satisfies the limits defined in Taiko protocol.</span>
+<span class="term-fg32">+&#47;&#47; and make sure each splitted list satisfies the limits defined in LayerX protocol.</span>
 <span class="term-fg32">+type PoolContentSplitter struct {</span>
 <span class="term-fg32">+	chainID                 *big.Int</span>
 <span class="term-fg32">+	maxTransactionsPerBlock uint64</span>
@@ -1643,7 +1643,7 @@
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; Split splits the given transaction pool content to make each splitted</span>
-<span class="term-fg32">+&#47;&#47; transactions list satisfies the rules defined in Taiko protocol.</span>
+<span class="term-fg32">+&#47;&#47; transactions list satisfies the rules defined in LayerX protocol.</span>
 <span class="term-fg32">+func (p *PoolContentSplitter) Split(poolContent PoolContent) []types.Transactions {</span>
 <span class="term-fg32">+	var (</span>
 <span class="term-fg32">+		localTxs, remoteTxs   = poolContent.ToTxsByPriceAndNonce(p.chainID, p.locals)</span>
@@ -1657,7 +1657,7 @@
 <span class="term-fg32">+}</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+&#47;&#47; validateTx checks whether the given transaction is valid according</span>
-<span class="term-fg32">+&#47;&#47; to the rules in Taiko protocol.</span>
+<span class="term-fg32">+&#47;&#47; to the rules in LayerX protocol.</span>
 <span class="term-fg32">+func (p *PoolContentSplitter) validateTx(tx *types.Transaction) error {</span>
 <span class="term-fg32">+	if tx.Gas() &lt; p.minTxGasLimit || tx.Gas() &gt; p.blockMaxGasLimit {</span>
 <span class="term-fg32">+		return fmt.Errorf(</span>
@@ -1887,7 +1887,7 @@
  		fee.Mul(fee, effectiveTip)
  		st.state.AddBalance(st.evm.Context.Coinbase, fee)
 <span class="term-fg32">+		&#47;&#47; CHANGE(taiko): basefee is not burnt, but sent to a treasury instead.</span>
-<span class="term-fg32">+		if st.evm.ChainConfig().Taiko &amp;&amp; st.evm.Context.BaseFee != nil &amp;&amp; !st.isAnchor() {</span>
+<span class="term-fg32">+		if st.evm.ChainConfig().LayerX &amp;&amp; st.evm.Context.BaseFee != nil &amp;&amp; !st.isAnchor() {</span>
 <span class="term-fg32">+			st.state.AddBalance(</span>
 <span class="term-fg32">+				st.evm.ChainConfig().Treasury,</span>
 <span class="term-fg32">+				new(big.Int).Mul(st.evm.Context.BaseFee, new(big.Int).SetUint64(st.gasUsed())),</span>
@@ -1902,7 +1902,7 @@
  }
 <span class="term-fg32">+</span>
 <span class="term-fg32">+func (st *StateTransition) isAnchor() bool {</span>
-<span class="term-fg32">+	return st.evm.ChainConfig().Taiko &amp;&amp;</span>
+<span class="term-fg32">+	return st.evm.ChainConfig().LayerX &amp;&amp;</span>
 <span class="term-fg32">+		st.msg.IsFirstTx &amp;&amp;</span>
 <span class="term-fg32">+		st.msg.From == common.HexToAddress(&quot;0x0000777735367b36bC9B61C50022d9D0700dB4Ec&quot;)</span>
 <span class="term-fg32">+}</span></div>
@@ -2102,7 +2102,7 @@
 <span class="term-fg32">+	&quot;github.com&#47;ethereum&#47;go-ethereum&#47;params&quot;</span>
 <span class="term-fg32">+)</span>
 <span class="term-fg32">+</span>
-<span class="term-fg32">+&#47;&#47; TaikoGenesisBlock returns the Taiko network genesis block configs.</span>
+<span class="term-fg32">+&#47;&#47; TaikoGenesisBlock returns the LayerX network genesis block configs.</span>
 <span class="term-fg32">+func TaikoGenesisBlock(networkID uint64) *Genesis {</span>
 <span class="term-fg32">+	chainConfig := params.TaikoChainConfig</span>
 <span class="term-fg32">+</span>
@@ -2198,7 +2198,7 @@
 <span class="term-fg31">-		if hash := types.DeriveSha(block.Withdrawals(), trie.NewStackTrie(nil)); hash != *header.WithdrawalsHash {</span>
 <span class="term-fg32">+</span>
 <span class="term-fg32">+		var hash common.Hash</span>
-<span class="term-fg32">+		if v.config.Taiko {</span>
+<span class="term-fg32">+		if v.config.LayerX {</span>
 <span class="term-fg32">+			hash = types.CalcWithdrawalsRootTaiko(block.Withdrawals())</span>
 <span class="term-fg32">+		} else {</span>
 <span class="term-fg32">+			hash = types.DeriveSha(block.Withdrawals(), trie.NewStackTrie(nil))</span>
@@ -2488,7 +2488,7 @@
 <span class="term-fg31">-	pool.currentMaxGas = newHead.GasLimit</span>
 <span class="term-fg32">+	&#47;&#47; CHANGE(taiko): current gas limit for transaction caps is always</span>
 <span class="term-fg32">+	&#47;&#47; LibSharedConfig.blockMaxGasLimit defined in protocol.</span>
-<span class="term-fg32">+	if pool.chainconfig.Taiko {</span>
+<span class="term-fg32">+	if pool.chainconfig.LayerX {</span>
 <span class="term-fg32">+		pool.currentMaxGas = 6000000 &#47;&#47; LibSharedConfig.blockMaxGasLimit</span>
 <span class="term-fg32">+	} else {</span>
 <span class="term-fg32">+		pool.currentMaxGas = newHead.GasLimit</span>
@@ -3027,7 +3027,7 @@
 <span class="term-fg32">+	&#47;&#47; CHANGE(taiko): set if `--taiko` flag is set.</span>
 <span class="term-fg32">+	var isTaiko bool</span>
 <span class="term-fg32">+	if config.Genesis != nil &amp;&amp; config.Genesis.Config != nil {</span>
-<span class="term-fg32">+		isTaiko = config.Genesis.Config.Taiko</span>
+<span class="term-fg32">+		isTaiko = config.Genesis.Config.LayerX</span>
 <span class="term-fg32">+	}</span>
 <span class="term-fg32">+	engine := ethconfig.CreateConsensusEngine(stack, &amp;ethashConfig, cliqueConfig, config.Miner.Notify, config.Miner.Noverify, chainDb, isTaiko)</span>
 &nbsp;
@@ -3259,7 +3259,7 @@
     </div>
 
     <div class="row forkdef-content collapse  border-1 ps-3 my-3" id="id-e9f916e60b463f11c270eb05">
-        <div><p>This adds Taiko protocol specific logic into the API.</p>
+        <div><p>This adds LayerX protocol specific logic into the API.</p>
 </div>
         <div>
             
@@ -3572,7 +3572,7 @@
  &#47;&#47; CreateConsensusEngine creates a consensus engine for the given chain configuration.
 <span class="term-fg31">-func CreateConsensusEngine(stack *node.Node, ethashConfig *ethash.Config, cliqueConfig *params.CliqueConfig, notify []string, noverify bool, db ethdb.Database) consensus.Engine {</span>
 <span class="term-fg32">+func CreateConsensusEngine(stack *node.Node, ethashConfig *ethash.Config, cliqueConfig *params.CliqueConfig, notify []string, noverify bool, db ethdb.Database, isTaiko bool) consensus.Engine {</span>
-<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): use Taiko consensus engine when the --taiko flag is set.</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): use LayerX consensus engine when the --taiko flag is set.</span>
 <span class="term-fg32">+	if isTaiko {</span>
 <span class="term-fg32">+		return taiko.New()</span>
 <span class="term-fg32">+	}</span>
@@ -3634,7 +3634,7 @@
  	}
 <span class="term-fg32">+</span>
 <span class="term-fg32">+	&#47;&#47; CHANGE(taiko): check whether --taiko flag is set.</span>
-<span class="term-fg32">+	isTaiko := api.eth.BlockChain().Config().Taiko</span>
+<span class="term-fg32">+	isTaiko := api.eth.BlockChain().Config().LayerX</span>
 <span class="term-fg32">+</span>
  	if rawdb.ReadCanonicalHash(api.eth.ChainDb(), block.NumberU64()) != update.HeadBlockHash {
  		&#47;&#47; Block is not canonical, set head.
@@ -3654,7 +3654,7 @@
  	&#47;&#47; sealed by the beacon client. The payload will be requested later, and we
  	&#47;&#47; will replace it arbitrarily many times in between.
  	if payloadAttributes != nil {
-<span class="term-fg32">+		&#47;&#47; CHANGE(taiko): create a L2 block by Taiko protocol.</span>
+<span class="term-fg32">+		&#47;&#47; CHANGE(taiko): create a L2 block by LayerX protocol.</span>
 <span class="term-fg32">+		if isTaiko {</span>
 <span class="term-fg32">+			&#47;&#47; No need to check payloadAttribute here, because all its fields are</span>
 <span class="term-fg32">+			&#47;&#47; marked as required.</span>
@@ -3714,7 +3714,7 @@
  	if api.eth.BlockChain().Config().IsShanghai(params.Timestamp) {
 <span class="term-fg31">-		if params.Withdrawals == nil {</span>
 <span class="term-fg32">+		if params.Withdrawals == nil &amp;&amp;</span>
-<span class="term-fg32">+			(api.eth.BlockChain().Config().Taiko &amp;&amp; params.WithdrawalsHash == (common.Hash{})) { &#47;&#47; CHANGE(taiko): allow only passing `WithdrawalsHash`</span>
+<span class="term-fg32">+			(api.eth.BlockChain().Config().LayerX &amp;&amp; params.WithdrawalsHash == (common.Hash{})) { &#47;&#47; CHANGE(taiko): allow only passing `WithdrawalsHash`</span>
  			return engine.PayloadStatusV1{Status: engine.INVALID}, engine.InvalidParams.With(fmt.Errorf(&quot;nil withdrawals post-shanghai&quot;))
  		}
  	} else if params.Withdrawals != nil {
@@ -3731,8 +3731,8 @@
 <span class="term-fg32">+		block *types.Block</span>
 <span class="term-fg32">+		err   error</span>
 <span class="term-fg32">+	)</span>
-<span class="term-fg32">+	params.TaikoBlock = api.eth.BlockChain().Config().Taiko</span>
-<span class="term-fg32">+	if api.eth.BlockChain().Config().Taiko &amp;&amp; params.Transactions == nil &amp;&amp; params.Withdrawals == nil {</span>
+<span class="term-fg32">+	params.TaikoBlock = api.eth.BlockChain().Config().LayerX</span>
+<span class="term-fg32">+	if api.eth.BlockChain().Config().LayerX &amp;&amp; params.Transactions == nil &amp;&amp; params.Withdrawals == nil {</span>
 <span class="term-fg32">+		block = types.NewBlockWithHeader(&amp;types.Header{</span>
 <span class="term-fg32">+			ParentHash:      params.ParentHash,</span>
 <span class="term-fg32">+			UncleHash:       types.EmptyUncleHash,</span>
@@ -3768,8 +3768,8 @@
 <span class="term-fg31">-		log.Warn(&quot;Invalid timestamp&quot;, &quot;parent&quot;, block.Time(), &quot;block&quot;, block.Time())</span>
 <span class="term-fg31">-		return api.invalid(errors.New(&quot;invalid timestamp&quot;), parent.Header()), nil</span>
 <span class="term-fg32">+	&#47;&#47; CHANGE(taiko): a block that has the same timestamp as its parents is</span>
-<span class="term-fg32">+	&#47;&#47; allowed in Taiko protocol.</span>
-<span class="term-fg32">+	if api.eth.BlockChain().Config().Taiko {</span>
+<span class="term-fg32">+	&#47;&#47; allowed in LayerX protocol.</span>
+<span class="term-fg32">+	if api.eth.BlockChain().Config().LayerX {</span>
 <span class="term-fg32">+		if block.Time() &lt; parent.Time() {</span>
 <span class="term-fg32">+			log.Warn(&quot;Invalid timestamp&quot;, &quot;parent&quot;, block.Time(), &quot;block&quot;, block.Time())</span>
 <span class="term-fg32">+			return api.invalid(errors.New(&quot;invalid timestamp&quot;), parent.Header()), nil</span>
@@ -4169,7 +4169,7 @@
  		accountManager:  stack.AccountManager(),
  		merger:          merger,
 <span class="term-fg31">-		engine:          ethconfig.CreateConsensusEngine(stack, &amp;config.Ethash, chainConfig.Clique, nil, false, chainDb),</span>
-<span class="term-fg32">+		engine:          ethconfig.CreateConsensusEngine(stack, &amp;config.Ethash, chainConfig.Clique, nil, false, chainDb, chainConfig.Taiko),</span>
+<span class="term-fg32">+		engine:          ethconfig.CreateConsensusEngine(stack, &amp;config.Ethash, chainConfig.Clique, nil, false, chainDb, chainConfig.LayerX),</span>
  		bloomRequests:   make(chan chan *bloombits.Retrieval),
  		bloomIndexer:    core.NewBloomIndexer(chainDb, params.BloomBitsBlocksClient, params.HelperTrieConfirmations),
  		p2pServer:       stack.Server(),</div>
@@ -4271,7 +4271,7 @@
     </div>
 
     <div class="row forkdef-content collapse  border-1 ps-3 my-3" id="id-a8a077ab42cf6872150657ba">
-        <div><p>This adds Taiko-specific miner changes.</p>
+        <div><p>This adds LayerX-specific miner changes.</p>
 </div>
         <div>
             
@@ -4380,7 +4380,7 @@
  			select {
  			case &lt;-timer.C:
 <span class="term-fg32">+				&#47;&#47; CHANGE(taiko): do not update payload.</span>
-<span class="term-fg32">+				if w.chainConfig.Taiko {</span>
+<span class="term-fg32">+				if w.chainConfig.LayerX {</span>
 <span class="term-fg32">+					continue</span>
 <span class="term-fg32">+				}</span>
  				start := time.Now()
@@ -4701,8 +4701,8 @@
  	if parent.Time &gt;= timestamp {
 <span class="term-fg31">-		if genParams.forceTime {</span>
 <span class="term-fg31">-			return nil, fmt.Errorf(&quot;invalid timestamp, parent %d given %d&quot;, parent.Time, timestamp)</span>
-<span class="term-fg32">+		&#47;&#47; CHANGE(taiko): block.timestamp == parent.timestamp is allowed in Taiko protocol.</span>
-<span class="term-fg32">+		if !w.chainConfig.Taiko {</span>
+<span class="term-fg32">+		&#47;&#47; CHANGE(taiko): block.timestamp == parent.timestamp is allowed in LayerX protocol.</span>
+<span class="term-fg32">+		if !w.chainConfig.LayerX {</span>
 <span class="term-fg32">+			if genParams.forceTime {</span>
 <span class="term-fg32">+				return nil, fmt.Errorf(&quot;invalid timestamp, parent %d given %d&quot;, parent.Time, timestamp)</span>
 <span class="term-fg32">+			}</span>
@@ -4724,7 +4724,7 @@
 <span class="term-fg31">-		if !w.chainConfig.IsLondon(parent.Number) {</span>
 <span class="term-fg31">-			parentGasLimit := parent.GasLimit * w.chainConfig.ElasticityMultiplier()</span>
 <span class="term-fg31">-			header.GasLimit = core.CalcGasLimit(parentGasLimit, w.config.GasCeil)</span>
-<span class="term-fg32">+		if w.chainConfig.Taiko &amp;&amp; genParams.baseFeePerGas != nil {</span>
+<span class="term-fg32">+		if w.chainConfig.LayerX &amp;&amp; genParams.baseFeePerGas != nil {</span>
 <span class="term-fg32">+			header.BaseFee = genParams.baseFeePerGas</span>
 <span class="term-fg32">+		} else {</span>
 <span class="term-fg32">+			header.BaseFee = misc.CalcBaseFee(w.chainConfig, parent)</span>
@@ -4784,7 +4784,7 @@
     </div>
 
     <div class="row forkdef-content collapse  border-1 ps-3 my-3" id="id-5732444fc63e648ef8a4e305">
-        <div><p>This adds Taiko config values such as chainIds/Network Ids.</p>
+        <div><p>This adds LayerX config values such as chainIds/Network Ids.</p>
 </div>
         <div>
             
@@ -4863,7 +4863,7 @@
 <span class="term-fg32">+	MergeNetsplitBlock:            nil,</span>
 <span class="term-fg32">+	TerminalTotalDifficulty:       common.Big0,</span>
 <span class="term-fg32">+	TerminalTotalDifficultyPassed: true,</span>
-<span class="term-fg32">+	Taiko:                         true,</span>
+<span class="term-fg32">+	LayerX:                         true,</span>
 <span class="term-fg32">+	Treasury:                      common.HexToAddress(&quot;0xdf09A0afD09a63fb04ab3573922437e1e637dE8b&quot;),</span>
 <span class="term-fg32">+}</span></div>
     </div>
@@ -4910,13 +4910,13 @@
  	RinkebyChainConfig.ChainID.String(): &quot;rinkeby&quot;,
  	GoerliChainConfig.ChainID.String():  &quot;goerli&quot;,
  	SepoliaChainConfig.ChainID.String(): &quot;sepolia&quot;,
-<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): add Taiko network name.</span>
-<span class="term-fg32">+	TaikoMainnetNetworkID.String():   &quot;Taiko&quot;,</span>
-<span class="term-fg32">+	TaikoInternal1NetworkID.String(): &quot;Taiko Internal 1&quot;,</span>
-<span class="term-fg32">+	TaikoInternal2NetworkID.String(): &quot;Taiko Internal 2&quot;,</span>
-<span class="term-fg32">+	SnæfellsjökullNetworkID.String(): &quot;Taiko Alpha-1 (Snæfellsjökull)&quot;,</span>
-<span class="term-fg32">+	AskjaNetworkID.String():          &quot;Taiko Alpha-2 (Askja)&quot;,</span>
-<span class="term-fg32">+	GrimsvotnNetworkID.String():      &quot;Taiko Alpha-3 L2 (Grímsvötn)&quot;,</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): add LayerX network name.</span>
+<span class="term-fg32">+	TaikoMainnetNetworkID.String():   &quot;LayerX&quot;,</span>
+<span class="term-fg32">+	TaikoInternal1NetworkID.String(): &quot;LayerX Internal 1&quot;,</span>
+<span class="term-fg32">+	TaikoInternal2NetworkID.String(): &quot;LayerX Internal 2&quot;,</span>
+<span class="term-fg32">+	SnæfellsjökullNetworkID.String(): &quot;LayerX Alpha-1 (Snæfellsjökull)&quot;,</span>
+<span class="term-fg32">+	AskjaNetworkID.String():          &quot;LayerX Alpha-2 (Askja)&quot;,</span>
+<span class="term-fg32">+	GrimsvotnNetworkID.String():      &quot;LayerX Alpha-3 L2 (Grímsvötn)&quot;,</span>
  }
 &nbsp;
  &#47;&#47; TrustedCheckpoint represents a set of post-processed trie roots (CHT and
@@ -4925,8 +4925,8 @@
  	Ethash *EthashConfig `json:&quot;ethash,omitempty&quot;`
  	Clique *CliqueConfig `json:&quot;clique,omitempty&quot;`
 <span class="term-fg32">+</span>
-<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): Taiko network flag.</span>
-<span class="term-fg32">+	Taiko    bool           `json:&quot;taiko&quot;`</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): LayerX network flag.</span>
+<span class="term-fg32">+	LayerX    bool           `json:&quot;taiko&quot;`</span>
 <span class="term-fg32">+	Treasury common.Address `json:&quot;treasury&quot;`</span>
  }
 &nbsp;
@@ -4935,9 +4935,9 @@
  	}
  	banner += fmt.Sprintf(&quot;Chain ID:  %v (%s)\n&quot;, c.ChainID, network)
  	switch {
-<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): print Taiko consensus engine in banner.</span>
-<span class="term-fg32">+	case c.Taiko:</span>
-<span class="term-fg32">+		banner += &quot;Consensus: Taiko\n&quot;</span>
+<span class="term-fg32">+	&#47;&#47; CHANGE(taiko): print LayerX consensus engine in banner.</span>
+<span class="term-fg32">+	case c.LayerX:</span>
+<span class="term-fg32">+		banner += &quot;Consensus: LayerX\n&quot;</span>
  	case c.Ethash != nil:
  		if c.TerminalTotalDifficulty == nil {
  			banner += &quot;Consensus: Ethash (proof-of-work)\n&quot;</div>

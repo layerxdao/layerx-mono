@@ -1,9 +1,9 @@
-# Taiko contributing guide
+# LayerX contributing guide
 
 **Table of contents:**
 
 - [Make a contribution](#make-a-contribution)
-- [Claim a Taiko Contributor GitPOAP](#claim-a-taiko-contributor-gitpoap)
+- [Claim a LayerX Contributor GitPOAP](#claim-a-taiko-contributor-gitpoap)
 - [Coding standards](#coding-standards)
 - [Documentation standards](#documentation-standards)
 
@@ -16,11 +16,11 @@ Here are some ways you can contribute:
 
 > Check out the [coding standards](#coding-standards) and [documentation standards](#documentation-standards) before you start working on a pull request.
 
-# Claim a Taiko Contributor GitPOAP
+# Claim a LayerX Contributor GitPOAP
 
-A Taiko Contributor GitPOAP is rewarded to anyone that merges in a pull request to one of Taiko's GitHub repositories (you can see which repositories here: [2023 Taiko Contributor GitPOAP](https://www.gitpoap.io/gp/893)).
+A LayerX Contributor GitPOAP is rewarded to anyone that merges in a pull request to one of LayerX's GitHub repositories (you can see which repositories here: [2023 LayerX Contributor GitPOAP](https://www.gitpoap.io/gp/893)).
 
-After your pull request is merged, a bot will automatically leave a comment with instructions to receive your GitPOAP. You only receive a Taiko Contributor GitPOAP for the first pull request you merge in a given year.
+After your pull request is merged, a bot will automatically leave a comment with instructions to receive your GitPOAP. You only receive a LayerX Contributor GitPOAP for the first pull request you merge in a given year.
 
 # Coding standards
 
@@ -61,6 +61,6 @@ Group documentation under one of the four categories (adopted from [Diátaxis](h
 
 ### Creating content
 
-If you are interested in creating some content (video, blog post, tweet thread, visuals, etc.), you are absolutely free to do so. It's useful to get a peer review on these, if you need a peer review please reach out to the community / team on the [Taiko Discord](https://discord.gg/taikoxyz).
+If you are interested in creating some content (video, blog post, tweet thread, visuals, etc.), you are absolutely free to do so. It's useful to get a peer review on these, if you need a peer review please reach out to the community / team on the [LayerX Discord](https://discord.gg/taikoxyz).
 
-If you are looking for some more guidance on creating content, you can consult the [Taiko content guide](https://hackmd.io/@taikolabs/BJurgF1bn).
+If you are looking for some more guidance on creating content, you can consult the [LayerX content guide](https://hackmd.io/@taikolabs/BJurgF1bn).

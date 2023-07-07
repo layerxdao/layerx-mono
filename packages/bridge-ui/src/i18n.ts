@@ -4,7 +4,7 @@ function setupI18n({ withLocale: _locale } = { withLocale: 'en' }) {
   dictionary.set({
     en: {
       home: {
-        title: 'Taiko Bridge',
+        title: 'LayerX Bridge',
         selectToken: 'Select Token',
         to: 'To',
         bridge: 'Bridge',

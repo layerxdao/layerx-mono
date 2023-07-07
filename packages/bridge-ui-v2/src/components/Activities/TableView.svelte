@@ -34,10 +34,10 @@
       </td>
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td align="center">2.5 ETH</td>
@@ -55,10 +55,10 @@
     <tr class="border-b border-b-divider-border h-[80px]">
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td>
@@ -84,10 +84,10 @@
     <tr class="border-b border-b-divider-border h-[80px]">
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td>
@@ -114,10 +114,10 @@
     <tr class="border-b border-b-divider-border h-[80px]">
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td>
@@ -152,10 +152,10 @@
       </td>
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td align="center">3.204 ETH</td>
@@ -181,10 +181,10 @@
       </td>
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td align="center">2.5 BLL</td>
@@ -202,10 +202,10 @@
     <tr class="border-b border-b-divider-border h-[80px]">
       <td>
         <div class="f-items-center space-x-2">
-          <i role="img" aria-label="Taiko">
+          <i role="img" aria-label="LayerX">
             <TaikoIcon size={20} />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
       </td>
       <td>

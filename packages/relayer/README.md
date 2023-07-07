@@ -3,7 +3,7 @@
 
 # Relayer
 
-A relayer for the Bridge to watch and sync event between Layer 1 and Taiko Layer 2.
+A relayer for the Bridge to watch and sync event between Layer 1 and LayerX Layer 2.
 
 ## Running the app
 

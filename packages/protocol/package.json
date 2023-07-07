@@ -34,7 +34,7 @@
     "Ethereum",
     "Layer2"
   ],
-  "author": "Taiko Labs",
+  "author": "LayerX Labs",
   "license": "MIT",
   "devDependencies": {
     "@defi-wonderland/smock": "^2.3.4",

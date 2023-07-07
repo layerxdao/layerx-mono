@@ -7,7 +7,7 @@
 | Block explorer    | https://explorer.test.layerx.build |
 | Bridge            | https://bridge.test.layerx.build   |
 | Swap              | https://swap.test.layerx.build     |
-| Taiko status page | https://status.test.layerx.build   |
+| LayerX status page | https://status.test.layerx.build   |
 
 ## Other links
 

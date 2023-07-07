@@ -60,7 +60,7 @@
     "title": "Faucet",
     "subtitle": "Mint test tokens.",
     "button.mint": "Mint",
-    "message.warning": "To request Test Token, you need to mint it on Sepolia. If you are currently on Taiko, please switch your network first. Additionally, ensure that you have a small amount of ETH in your Sepolia wallet to complete the transaction."
+    "message.warning": "To request Test Token, you need to mint it on Sepolia. If you are currently on LayerX, please switch your network first. Additionally, ensure that you have a small amount of ETH in your Sepolia wallet to complete the transaction."
   },
 
   "token_dropdown": {

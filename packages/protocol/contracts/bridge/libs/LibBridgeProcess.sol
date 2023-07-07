@@ -90,7 +90,7 @@ library LibBridgeProcess {
         uint256 allValue =
             message.depositValue + message.callValue + message.processingFee;
         // We retrieve the necessary ether from EtherVault if receiving on
-        // Taiko, otherwise it is already available in this Bridge.
+        // LayerX, otherwise it is already available in this Bridge.
         address ethVault = resolver.resolve("ether_vault", true);
         if (ethVault != address(0) && (allValue > 0)) {
             EtherVault(payable(ethVault)).releaseEther(allValue);

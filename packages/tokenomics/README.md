@@ -1,3 +1,3 @@
 # Overview
 
-This package contains some simulations for Taiko protocol tokenomics.
+This package contains some simulations for LayerX protocol tokenomics.

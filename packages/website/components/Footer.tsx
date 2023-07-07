@@ -19,7 +19,7 @@ export default function Footer() {
               </li>
               <li className="mb-4">
                 <a
-                  href="https://www.notion.so/taikoxyz/Taiko-Jobs-828fd7232d2c4150a11e10c8baa910a2"
+                  href="https://www.notion.so/taikoxyz/LayerX-Jobs-828fd7232d2c4150a11e10c8baa910a2"
                   className="hover:underline"
                   target={"_blank"}
                 >
@@ -111,7 +111,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="font-groteskmedium text-md text-center text-neutral-500 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 px-4 py-6">
-          © {new Date().getFullYear()} Taiko Labs
+          © {new Date().getFullYear()} LayerX Labs
         </div>
       </div>
     </footer>

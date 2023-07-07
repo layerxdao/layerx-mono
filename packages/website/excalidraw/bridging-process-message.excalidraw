@@ -405,12 +405,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "IF the destination \nchain is Taiko L2, \nrelease funds from \nEtherVault",
+      "text": "IF the destination \nchain is LayerX L2, \nrelease funds from \nEtherVault",
       "baseline": 93,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "HsdWiPkYW4rS-0B8v0eT9",
-      "originalText": "IF the destination chain is Taiko L2, release funds from EtherVault\n "
+      "originalText": "IF the destination chain is LayerX L2, release funds from EtherVault\n "
     },
     {
       "type": "rectangle",
@@ -1047,12 +1047,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Only Taiko L2:\n - EtherVault",
+      "text": "Only LayerX L2:\n - EtherVault",
       "baseline": 43,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Only Taiko L2:\n - EtherVault"
+      "originalText": "Only LayerX L2:\n - EtherVault"
     },
     {
       "type": "text",
@@ -1081,12 +1081,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Ethereum L1 & Taiko L2:\n - TokenVault, Bridge,\n   SignalService",
+      "text": "Ethereum L1 & LayerX L2:\n - TokenVault, Bridge,\n   SignalService",
       "baseline": 68,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Ethereum L1 & Taiko L2:\n - TokenVault, Bridge,\n   SignalService"
+      "originalText": "Ethereum L1 & LayerX L2:\n - TokenVault, Bridge,\n   SignalService"
     },
     {
       "type": "rectangle",

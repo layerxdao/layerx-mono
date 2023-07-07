@@ -3,15 +3,15 @@
     "title": "Overview"
   },
   "proposing": {
-    "title": "Proposing Taiko blocks"
+    "title": "Proposing LayerX blocks"
   },
   "proving": {
-    "title": "Proving Taiko blocks"
+    "title": "Proving LayerX blocks"
   },
   "bridging": {
     "title": "Bridging"
   },
   "taiko-nodes": {
-    "title": "Taiko nodes"
+    "title": "LayerX nodes"
   }
 }

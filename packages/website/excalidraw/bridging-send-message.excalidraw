@@ -405,12 +405,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Only Taiko L2:\n - EtherVault",
+      "text": "Only LayerX L2:\n - EtherVault",
       "baseline": 43,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Only Taiko L2:\n - EtherVault"
+      "originalText": "Only LayerX L2:\n - EtherVault"
     },
     {
       "type": "rectangle",
@@ -713,12 +713,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "IF the source chain\nis Taiko L2, send\nfunds to EtherVault ",
+      "text": "IF the source chain\nis LayerX L2, send\nfunds to EtherVault ",
       "baseline": 68,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "py44GT3jZgPgFiatNG-Yu",
-      "originalText": "IF the source chain\nis Taiko L2, send\nfunds to EtherVault "
+      "originalText": "IF the source chain\nis LayerX L2, send\nfunds to EtherVault "
     },
     {
       "type": "text",
@@ -747,12 +747,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Ethereum L1 & Taiko L2:\n - TokenVault, Bridge,\n   SignalService",
+      "text": "Ethereum L1 & LayerX L2:\n - TokenVault, Bridge,\n   SignalService",
       "baseline": 68,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Ethereum L1 & Taiko L2:\n - TokenVault, Bridge,\n   SignalService"
+      "originalText": "Ethereum L1 & LayerX L2:\n - TokenVault, Bridge,\n   SignalService"
     },
     {
       "type": "rectangle",
@@ -1137,12 +1137,12 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "The EtherVault stores\nfunds if transferring\nfrom Taiko L2",
+      "text": "The EtherVault stores\nfunds if transferring\nfrom LayerX L2",
       "baseline": 68,
       "textAlign": "center",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "The EtherVault stores\nfunds if transferring\nfrom Taiko L2"
+      "originalText": "The EtherVault stores\nfunds if transferring\nfrom LayerX L2"
     },
     {
       "type": "ellipse",

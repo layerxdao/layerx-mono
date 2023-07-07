@@ -1,19 +1,19 @@
 import { Callout, Steps, Tab, Tabs } from "nextra-theme-docs";
 
-# Run a Taiko node
+# Run a LayerX node
 
 ## Overview
 
-This guide will walk you through the process of operating a Taiko node via [simple-taiko-node](https://github.com/taikoxyz/simple-taiko-node). You will be able to:
+This guide will walk you through the process of operating a LayerX node via [simple-taiko-node](https://github.com/taikoxyz/simple-taiko-node). You will be able to:
 
-- Run a Taiko node easily from the command line on Windows, Mac, and Linux.
+- Run a LayerX node easily from the command line on Windows, Mac, and Linux.
 - View a [Grafana](https://grafana.com/) dashboard which displays the node's status.
 
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/engine/install/) is installed and **running**.
 - [Git](https://github.com/git-guides/install-git/) is installed.
-- Consult the [Geth minimum hardware requirements](https://github.com/ethereum/go-ethereum#hardware-requirements), but ignore the storage requirement as Taiko nodes will require less storage. Around 50GB should be more than enough initially, but over time it could become insufficient as the chain grows. As of `2023-06-21T16:59:11+00:00` a Taiko node sync takes **17.3 GB**.
+- Consult the [Geth minimum hardware requirements](https://github.com/ethereum/go-ethereum#hardware-requirements), but ignore the storage requirement as LayerX nodes will require less storage. Around 50GB should be more than enough initially, but over time it could become insufficient as the chain grows. As of `2023-06-21T16:59:11+00:00` a LayerX node sync takes **17.3 GB**.
 
 ## Steps
 
@@ -95,7 +95,7 @@ Then, configure your Sepolia L1 endpoint.
   ![dashboard click create app](/images/guides/alchemy/dashboard.png)
 
   Next, configure your app:
-  - for "name", enter "Taiko A3 Node", or your preferred name. 
+  - for "name", enter "LayerX A3 Node", or your preferred name. 
   - for "chain", select "Ethereum". 
   - for "network", select "Ethereum Sepolia".
 
@@ -115,7 +115,7 @@ Then, configure your Sepolia L1 endpoint.
 
   Next, go to "API Keys", and click the "create new API key" button:
   - for "network", select "Web3 API". 
-  - for "name", enter "Taiko A3 Node", or your preferred name. 
+  - for "name", enter "LayerX A3 Node", or your preferred name. 
 
   Then, click the "create" button.
   ![create API key](/images/guides/infura/create-key.png)
@@ -151,7 +151,7 @@ See [enable a prover](/docs/guides/enable-a-prover) for more information.
 ### Start a node
 
 <Callout>
-  If you ran a testnet node previously make sure to first run a `docker compose down -v` to remove the old volumes. Also, it may take some time to synchronize from the genesis block. You can monitor this progress through logs, or in the local grafana dashboard and see the latest L2 chain status in the [Taiko block explorer](https://explorer.test.layerx.build/).
+  If you ran a testnet node previously make sure to first run a `docker compose down -v` to remove the old volumes. Also, it may take some time to synchronize from the genesis block. You can monitor this progress through logs, or in the local grafana dashboard and see the latest L2 chain status in the [LayerX block explorer](https://explorer.test.layerx.build/).
 </Callout>
 
 Make sure Docker is running and then run the following command to start the node. If you want to run it in the background, please add the `-d` flag (`docker compose up -d`).

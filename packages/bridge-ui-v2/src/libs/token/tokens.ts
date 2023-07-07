@@ -16,7 +16,7 @@ export const ETHToken: Token = {
 };
 
 export const TKOToken: Token = {
-  name: 'Taiko',
+  name: 'LayerX',
   addresses: {
     [PUBLIC_L1_CHAIN_ID]: zeroAddress,
     [PUBLIC_L2_CHAIN_ID]: zeroAddress,

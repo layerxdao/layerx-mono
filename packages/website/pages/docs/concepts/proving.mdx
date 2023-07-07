@@ -1,17 +1,17 @@
 import Image from "next/image";
 
-# Proving Taiko blocks
+# Proving LayerX blocks
 
 ## Overview
-The purpose of proving blocks is to give certainty to bridges about the execution that happened in the rollup. To rely on some state that happened inside of the rollup, a bridge will want a proof that everything was done correctly. On Taiko you can run a node as a prover and prove blocks, permissionlessly. This means that you can examine the proposed blocks on the TaikoL1 contract, and generate proofs for them. Currently, any prover can create proofs for proposed blocks. This means that the number of "fork choices" has no upper bound, because we don't know what is the correct state transition yet. Only first prover with a valid proof of the correct fork choice (state transition) will receive the reward of TTKO.
+The purpose of proving blocks is to give certainty to bridges about the execution that happened in the rollup. To rely on some state that happened inside of the rollup, a bridge will want a proof that everything was done correctly. On LayerX you can run a node as a prover and prove blocks, permissionlessly. This means that you can examine the proposed blocks on the TaikoL1 contract, and generate proofs for them. Currently, any prover can create proofs for proposed blocks. This means that the number of "fork choices" has no upper bound, because we don't know what is the correct state transition yet. Only first prover with a valid proof of the correct fork choice (state transition) will receive the reward of TTKO.
 
 ## Verified blocks and parallel proving
-There are three states that a block can be in on Taiko:
+There are three states that a block can be in on LayerX:
 - Proposed
 - Proved
 - Verified
 
-We already know what a proposed block is (must pass at least the block-level intrinsic validity tests to be accepted by the TaikoL1 contract). Next, a proposed block can be valid or invalid, depending on whether it passes the transaction list intrinsic validity test. A block is invalid if it fails the transaction list intrinsic validity test, and this block is not created on Taiko.
+We already know what a proposed block is (must pass at least the block-level intrinsic validity tests to be accepted by the TaikoL1 contract). Next, a proposed block can be valid or invalid, depending on whether it passes the transaction list intrinsic validity test. A block is invalid if it fails the transaction list intrinsic validity test, and this block is not created on LayerX.
 
 Now, a block can be proved, but also further "verified". What's the difference? A block is proved if it has a valid proof which proves a state transition from one state (parent block) to another (current block). However, blocks are proven in parallel by the decentralized provers. So while a block can prove a parent block transitions to the current block, we don't know if the parent block itself has been proven. As you can see, for a block to be "verified", it needs to prove the valid state transition to the current block, but the parent also need to be verified. We assume that the genesis block (which has no parent), is verified. So all the children blocks from genesis to the current block need to have proofs of their state transition for the current block to be "verified".
 

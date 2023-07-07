@@ -4,7 +4,7 @@
 // (The MIT License)
 //
 // Copyright 2020-2021 Optimism
-// Copyright 2022-2023 Taiko Labs
+// Copyright 2022-2023 LayerX Labs
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the

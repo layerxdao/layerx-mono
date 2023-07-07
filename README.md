@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./packages/branding/RGB SVG (For Digital Use)/Taiko Icon/taiko-icon-blk.svg" width="80" alt="Logo for Taiko" />
+  <img src="./packages/branding/RGB SVG (For Digital Use)/LayerX Icon/taiko-icon-blk.svg" width="80" alt="Logo for LayerX" />
 </p>
 
 <h1 align="center">
-  Taiko
+  LayerX
 </h1>
 
 <p align="center">
@@ -37,16 +37,16 @@ layerx-mono/
 ├── <a href="./LICENSE.md">LICENSE.md</a>
 ├── <a href="./README.md">README.md</a>
 ├── <a href="./packages">packages</a>
-│   ├── <a href="./packages/branding">branding</a>: Taiko branding materials.
-│   ├── <a href="./packages/bridge-ui">bridge-ui</a>: Taiko bridge frontend UI.
-│   ├── <a href="./packages/bridge-ui-v2">bridge-ui-v2</a>: Taiko bridge frontend UI v2 (🚧 under construction 🚧).
+│   ├── <a href="./packages/branding">branding</a>: LayerX branding materials.
+│   ├── <a href="./packages/bridge-ui">bridge-ui</a>: LayerX bridge frontend UI.
+│   ├── <a href="./packages/bridge-ui-v2">bridge-ui-v2</a>: LayerX bridge frontend UI v2 (🚧 under construction 🚧).
 │   ├── <a href="./packages/eventindexer">eventindexer</a>: Event indexer.
 │   ├── <a href="./packages/fork-diff">fork-diff</a>: Fork diff page (currently, for geth).
-│   ├── <a href="./packages/protocol">protocol</a>: Taiko protocol and bridge smart contracts.
+│   ├── <a href="./packages/protocol">protocol</a>: LayerX protocol and bridge smart contracts.
 │   ├── <a href="./packages/relayer">relayer</a>: Bridge backend relayer in Go.
-│   ├── <a href="./packages/starter-dapp">starter-dapp</a>: Template for Taiko dapps.
-│   ├── <a href="./packages/status-page">status-page</a>: Taiko protocol status page.
-│   ├── <a href="./packages/tokenomics">tokenomics</a>: Taiko tokenomics simulations.
+│   ├── <a href="./packages/starter-dapp">starter-dapp</a>: Template for LayerX dapps.
+│   ├── <a href="./packages/status-page">status-page</a>: LayerX protocol status page.
+│   ├── <a href="./packages/tokenomics">tokenomics</a>: LayerX tokenomics simulations.
 │   ├── <a href="./packages/website">website</a>: Main documentation website at https://layerx.build.
 │   └── <a href="./packages/whitepaper">whitepaper</a>: Whitepaper source files with automated publishing.
 ...

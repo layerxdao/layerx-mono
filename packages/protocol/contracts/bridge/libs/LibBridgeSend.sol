@@ -27,7 +27,7 @@ library LibBridgeSend {
     /**
      * Send a message to the Bridge with the details of the request.
      * @dev The Bridge takes custody of the funds, unless the source chain is
-     * Taiko,
+     * LayerX,
      * in which case the funds are sent to and managed by the EtherVault.
      * @param state The current state of the Bridge
      * @param resolver The address resolver
@@ -70,7 +70,7 @@ library LibBridgeSend {
             revert B_INCORRECT_VALUE();
         }
 
-        // If on Taiko, send the expectedAmount to the EtherVault. Otherwise,
+        // If on LayerX, send the expectedAmount to the EtherVault. Otherwise,
         // store it here on the Bridge. Processing will release Ether from the
         // EtherVault or the Bridge on the destination chain.
         address ethVault = resolver.resolve("ether_vault", true);

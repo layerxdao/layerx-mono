@@ -1,14 +1,14 @@
-# Taiko integration guide
+# LayerX integration guide
 
-Taiko is an Ethereum-equivalent network, meaning integrating with Taiko should be as simple as adding our RPC.
+LayerX is an Ethereum-equivalent network, meaning integrating with LayerX should be as simple as adding our RPC.
 
 ## RPC configuration
 
 You can view the RPC configuration [here](/docs/reference/rpc-configuration).
 
-## Taiko brand assets
+## LayerX brand assets
 
-When using the Taiko logo, please use one of the branding icons/logos [here](https://github.com/taikoxyz/layerx-mono/tree/main/packages/branding).
+When using the LayerX logo, please use one of the branding icons/logos [here](https://github.com/taikoxyz/layerx-mono/tree/main/packages/branding).
 
 ## Add/update your project to our Ecosystem page
 
@@ -18,6 +18,6 @@ This will take you to a form where you can add/update details about your project
 
 ## Additional support
 
-If you have any questions or are in need of any support to integrate Taiko, please reach out. We understand there may be more complex scenarios or questions in your integration, so we are here to help.
+If you have any questions or are in need of any support to integrate LayerX, please reach out. We understand there may be more complex scenarios or questions in your integration, so we are here to help.
 
 You can message us / the community on Discord, and also contact a DevRel Engineer directly with the `@devrel` tag.

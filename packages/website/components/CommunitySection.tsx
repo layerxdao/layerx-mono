@@ -18,7 +18,7 @@ export default function CommunitySection() {
                 rel="noreferrer"
                 className={`${buttonClass} bg-[#404040] hover:bg-[#3a3a3a]`}
               >
-                Contribute to Taiko
+                Contribute to LayerX
               </a>
               <a
                 href="https://discord.gg/taikoxyz"
@@ -37,7 +37,7 @@ export default function CommunitySection() {
                 Follow on Twitter
               </a>
               <a
-                href="https://taikoxyz.notion.site/Taiko-Jobs-828fd7232d2c4150a11e10c8baa910a2"
+                href="https://taikoxyz.notion.site/LayerX-Jobs-828fd7232d2c4150a11e10c8baa910a2"
                 target="_blank"
                 rel="noreferrer"
                 className={`${buttonClass} bg-[#e81899] hover:bg-[#d1168a]`}

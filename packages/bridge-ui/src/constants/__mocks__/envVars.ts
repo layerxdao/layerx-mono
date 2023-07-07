@@ -34,7 +34,7 @@ export const L2_SIGNAL_SERVICE_ADDRESS =
 
 export const L2_CHAIN_ID = 167001;
 
-export const L2_CHAIN_NAME = 'Taiko';
+export const L2_CHAIN_NAME = 'LayerX';
 
 export const L2_EXPLORER_URL = 'https://l2explorer.internal.layerx.build';
 

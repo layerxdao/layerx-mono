@@ -1,4 +1,4 @@
-# Taiko documentation website
+# LayerX documentation website
 
 ## Pre-Installation
 

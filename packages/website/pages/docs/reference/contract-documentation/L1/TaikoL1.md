@@ -38,7 +38,7 @@ Initialize the rollup.
 function proposeBlock(bytes input, bytes txList) external returns (struct TaikoData.BlockMetadata meta)
 ```
 
-Propose a Taiko L2 block.
+Propose a LayerX L2 block.
 
 #### Parameters
 

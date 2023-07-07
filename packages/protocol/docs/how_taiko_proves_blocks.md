@@ -1,6 +1,6 @@
-# How Taiko proves L2 blocks
+# How LayerX proves L2 blocks
 
-This document specifies how the Taiko protocol, client, and circuits work together to prove L2 blocks.
+This document specifies how the LayerX protocol, client, and circuits work together to prove L2 blocks.
 
 ## Data
 
@@ -63,7 +63,7 @@ Note that the anchor transaction emits an `Anchored` event that may help ZKP to 
 ZKP shall also check the signature of the anchor transaction:
 
 - The signer must be _`TaikoL2.GOLDEN_TOUCH_ADDRESS`_.
-- The signature must use `1` as the `k` value if the calculated `r` is not `0`, other wise, `k` must be `2`. See [TaikoL2Signer.sol](https://github.com/taikoxyz/layerx-mono/blob/main/packages/protocol/contracts/L2/TaikoL2Signer.sol) and Taiko [whitepaper](https://taikoxyz.github.io/layerx-mono/taiko-whitepaper.pdf).
+- The signature must use `1` as the `k` value if the calculated `r` is not `0`, other wise, `k` must be `2`. See [TaikoL2Signer.sol](https://github.com/taikoxyz/layerx-mono/blob/main/packages/protocol/contracts/L2/TaikoL2Signer.sol) and LayerX [whitepaper](https://taikoxyz.github.io/layerx-mono/taiko-whitepaper.pdf).
 
 ### Block Metadata
 
@@ -182,7 +182,7 @@ The ZKP also needs to prove that the cross chain signal service’s storage root
 
 ### EIP-1559
 
-In the Taiko L2 protocol, instead of being burned, the basefee is transferred to a designated `treasury` address. To ensure the integrity of this process, the ZKP needs to verify that the treasury address specified by the Taiko L1 contract is indeed the intended recipient.
+In the LayerX L2 protocol, instead of being burned, the basefee is transferred to a designated `treasury` address. To ensure the integrity of this process, the ZKP needs to verify that the treasury address specified by the LayerX L1 contract is indeed the intended recipient.
 
 ### LibProving Verification
 

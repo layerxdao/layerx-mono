@@ -1,7 +1,7 @@
 import type { Chain as WagmiChain } from 'wagmi';
 
 import Eth from '../components/icons/ETH.svelte';
-import Taiko from '../components/icons/TKO.svelte';
+import LayerX from '../components/icons/TKO.svelte';
 import {
   L1_BRIDGE_ADDRESS,
   L1_CHAIN_ID,
@@ -37,7 +37,7 @@ export const taikoChain: Chain = {
   name: L2_CHAIN_NAME,
   rpc: L2_RPC,
   enabled: true,
-  icon: Taiko,
+  icon: LayerX,
   bridgeAddress: L2_BRIDGE_ADDRESS,
   crossChainSyncAddress: L2_CROSS_CHAIN_SYNC_ADDRESS,
   explorerUrl: L2_EXPLORER_URL,

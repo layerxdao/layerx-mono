@@ -3,7 +3,7 @@ import { BigNumber } from "ethers";
 import type { ComponentType } from "svelte";
 
 import Eth from "../components/icons/ETH.svelte";
-import Taiko from "../components/icons/TKO.svelte";
+import LayerX from "../components/icons/TKO.svelte";
 
 export const CHAIN_ID_MAINNET = import.meta.env
   ? BigNumber.from(import.meta.env.VITE_MAINNET_CHAIN_ID).toNumber()
@@ -61,10 +61,10 @@ export const CHAIN_MAINNET = {
 
 export const CHAIN_TKO = {
   id: CHAIN_ID_TAIKO,
-  name: import.meta.env ? import.meta.env.VITE_TAIKO_CHAIN_NAME : "Taiko A2",
+  name: import.meta.env ? import.meta.env.VITE_TAIKO_CHAIN_NAME : "LayerX A2",
   rpc: L2_RPC,
   enabled: true,
-  icon: Taiko,
+  icon: LayerX,
   bridgeAddress: L2_BRIDGE_ADDRESS,
   headerSyncAddress: L2_HEADER_SYNC_ADDRESS,
   explorerUrl: L2_EXPLORER_URL,
@@ -101,7 +101,7 @@ export const mainnet: WagmiChain = {
 
 export const taiko: WagmiChain = {
   id: CHAIN_ID_TAIKO,
-  name: import.meta.env ? import.meta.env.VITE_TAIKO_CHAIN_NAME : "Taiko A2",
+  name: import.meta.env ? import.meta.env.VITE_TAIKO_CHAIN_NAME : "LayerX A2",
   network: "",
   nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
   rpcUrls: {

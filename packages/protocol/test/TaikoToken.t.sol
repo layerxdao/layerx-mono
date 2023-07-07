@@ -51,7 +51,7 @@ contract TaikoTokenTest is Test {
                 tko.init.selector,
                 abi.encode(
                     address(addressManager),
-                    "Taiko Token",
+                    "LayerX Token",
                     "TKO",
                     premintRecipients,
                     premintAmounts

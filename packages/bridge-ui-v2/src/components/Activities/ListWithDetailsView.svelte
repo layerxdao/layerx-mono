@@ -36,7 +36,7 @@
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
         <div class="text-primary-content">2.5 ETH</div>
       </div>
@@ -52,7 +52,7 @@
       on:keydown={onItemKeydown}>
       <div class="space-y-[5px]">
         <div class="body-bold f-items-center space-x-[6px] text-white">
-          <span>Taiko</span>
+          <span>LayerX</span>
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
@@ -72,7 +72,7 @@
       on:keydown={onItemKeydown}>
       <div class="space-y-[5px]">
         <div class="body-bold f-items-center space-x-[6px] text-white">
-          <span>Taiko</span>
+          <span>LayerX</span>
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
@@ -93,7 +93,7 @@
       on:keydown={onItemKeydown}>
       <div class="space-y-[5px]">
         <div class="body-bold f-items-center space-x-[6px] text-white">
-          <span>Taiko</span>
+          <span>LayerX</span>
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
@@ -118,7 +118,7 @@
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
         <div class="text-primary-content">3.204 ETH</div>
       </div>
@@ -138,7 +138,7 @@
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
-          <span>Taiko</span>
+          <span>LayerX</span>
         </div>
         <div class="text-primary-content">2.5 BLL</div>
       </div>
@@ -154,7 +154,7 @@
       on:keydown={onItemKeydown}>
       <div class="space-y-[5px]">
         <div class="body-bold f-items-center space-x-[6px] text-white">
-          <span>Taiko</span>
+          <span>LayerX</span>
           <i role="img" aria-label="arrow to">
             <Icon type="arrow-right" />
           </i>
@@ -191,10 +191,10 @@
         <li class="f-between-center">
           <h4 class="text-secondary-content">{$t('chain.to')}</h4>
           <div class="f-items-center space-x-2">
-            <i role="img" aria-label="Taiko">
+            <i role="img" aria-label="LayerX">
               <TaikoIcon size={20} />
             </i>
-            <span>Taiko</span>
+            <span>LayerX</span>
           </div>
         </li>
         <li class="f-between-center">

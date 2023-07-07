@@ -72,7 +72,7 @@ def:
         #   globs:
         #     - "consensus/*"
         - title: "Files"
-          description: "This is our Taiko consensus engine, built for L2 rollup."
+          description: "This is our LayerX consensus engine, built for L2 rollup."
           globs:
             - "consensus/*/*"
 
@@ -130,7 +130,7 @@ def:
           globs:
             - "eth/*"
         - title: "API Files"
-          description: "This adds Taiko protocol specific logic into the API."
+          description: "This adds LayerX protocol specific logic into the API."
           globs:
             - "eth/*/*"
         # - title: "third layer"
@@ -236,7 +236,7 @@ def:
       description: This shows changes to miner files.
       sub:
         - title: "Files"
-          description: This adds Taiko-specific miner changes.
+          description: This adds LayerX-specific miner changes.
           globs:
             - "miner/*"
 
@@ -271,7 +271,7 @@ def:
       description: This shows changes to params files.
       sub:
         - title: "Files"
-          description: "This adds Taiko config values such as chainIds/Network Ids."
+          description: "This adds LayerX config values such as chainIds/Network Ids."
           globs:
             - "params/*"
 

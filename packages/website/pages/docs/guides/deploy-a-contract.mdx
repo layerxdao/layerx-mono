@@ -4,17 +4,17 @@ import { Callout, Steps, Tab, Tabs } from "nextra-theme-docs";
 
 ## Overview
 
-This guide will help you deploy a smart contract to Taiko using Foundry or Hardhat.
+This guide will help you deploy a smart contract to LayerX using Foundry or Hardhat.
 
 ## Prerequisites
 
 - You have [Foundry](https://book.getfoundry.sh/getting-started/installation) or [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started#quick-start) installed.
-- You have testnet ETH on Taiko (to pay the transaction fee for deploying the contract).
-   - You can [request Sepolia ETH](/docs/guides/receive-tokens#receive-sepolia-eth) from the faucet and then [use the bridge](/docs/guides/use-the-bridge) to send the testnet ETH to Taiko.
-- You have the private key to the account with testnet ETH on Taiko.
+- You have testnet ETH on LayerX (to pay the transaction fee for deploying the contract).
+   - You can [request Sepolia ETH](/docs/guides/receive-tokens#receive-sepolia-eth) from the faucet and then [use the bridge](/docs/guides/use-the-bridge) to send the testnet ETH to LayerX.
+- You have the private key to the account with testnet ETH on LayerX.
 
 ### Additional Remix prerequisites
-- You have [configured your wallet](/docs/guides/configure-your-wallet) to connect to Taiko.
+- You have [configured your wallet](/docs/guides/configure-your-wallet) to connect to LayerX.
 
 ## Steps
 
@@ -27,7 +27,7 @@ This guide will help you deploy a smart contract to Taiko using Foundry or Hardh
    ```
 
    ### Deploy your contract
-   Deploy the contract located at `src/Counter.sol`. Replace `YOUR_PRIVATE_KEY` below with your private key which has some testnet ETH on Taiko.
+   Deploy the contract located at `src/Counter.sol`. Replace `YOUR_PRIVATE_KEY` below with your private key which has some testnet ETH on LayerX.
    <Callout type="warning">
    Use a throwaway wallet to be safe. Don't reveal the private key of a wallet with significant value!
    </Callout>
@@ -37,7 +37,7 @@ This guide will help you deploy a smart contract to Taiko using Foundry or Hardh
    ```
 
    ### View your contract
-   Paste the address from the output into the [Taiko block explorer](https://explorer.test.layerx.build) and verify that the contract was deployed.
+   Paste the address from the output into the [LayerX block explorer](https://explorer.test.layerx.build) and verify that the contract was deployed.
    </Steps>
   </Tab>
   <Tab>
@@ -47,7 +47,7 @@ This guide will help you deploy a smart contract to Taiko using Foundry or Hardh
       npx hardhat
       ```
 
-      ### Add Taiko to your Hardhat config
+      ### Add LayerX to your Hardhat config
       <Callout type="warning">
       For the `accounts` array, you will need to enter the private key of the account you are deploying the contract with. It is **not recommended** to hardcode the private key like this (an environment variable would be better, but is still risky).
 
@@ -73,19 +73,19 @@ This guide will help you deploy a smart contract to Taiko using Foundry or Hardh
       export default config;
       ```
 
-      ### Deploy your contract on Taiko
+      ### Deploy your contract on LayerX
       ```sh
       npx hardhat run --network taiko scripts/deploy.ts
       ```
 
       ### View your contract
-      Paste the address from the output into the [Taiko block explorer](https://explorer.test.layerx.build) and verify that the contract was deployed.
+      Paste the address from the output into the [LayerX block explorer](https://explorer.test.layerx.build) and verify that the contract was deployed.
    </Steps>
   </Tab>
   <Tab>
    <Steps>
-      ### Visit Remix and connect your wallet to Taiko
-      Visit [remix.ethereum.org](https://remix.ethereum.org) and connect your wallet to Taiko.
+      ### Visit Remix and connect your wallet to LayerX
+      Visit [remix.ethereum.org](https://remix.ethereum.org) and connect your wallet to LayerX.
 
       ### Select a smart contract
       ![select a smart contract](/images/guides/deploy-remix/select.png)

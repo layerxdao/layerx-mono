@@ -74,7 +74,7 @@ library LibBridgeRelease {
 
         if (releaseAmount > 0) {
             address ethVault = resolver.resolve("ether_vault", true);
-            // if on Taiko
+            // if on LayerX
             if (ethVault != address(0)) {
                 EtherVault(payable(ethVault)).releaseEther(
                     message.owner, releaseAmount

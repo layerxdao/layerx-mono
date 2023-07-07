@@ -13,7 +13,7 @@ interface AddEthereumChainParameter {
 
 export const taikoChainConfig: AddEthereumChainParameter = {
   chainId: "0x28c5d",
-  chainName: "Taiko (Alpha-3 Testnet)",
+  chainName: "LayerX (Alpha-3 Testnet)",
   nativeCurrency: {
     name: "ETH",
     symbol: "ETH",

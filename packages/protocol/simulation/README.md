@@ -26,7 +26,7 @@ So, the `XXXXXXXXXX_proof_time_per_block.png` figure will be definitely crowded 
 
 - `PROOF_TIME_TARGET` -> Obvious. This is the target we have to set.
 - `blocksToSimulate` -> How many blocks we would like to simulate.
-- `nextBlockTime` and `minDiffToBlockPropTime` -> Currently they are set to 12 an 24 (The latter indirectly means 12+12) respectively. It means 12 is the least minimum between 2 blocks, but might be possible that not every Ethereum block will have Taiko block, but let's say on average 18s we have a Taiko block. (Sometimes 12, sometimes 24, averaging out to a 18 time.)
+- `nextBlockTime` and `minDiffToBlockPropTime` -> Currently they are set to 12 an 24 (The latter indirectly means 12+12) respectively. It means 12 is the least minimum between 2 blocks, but might be possible that not every Ethereum block will have LayerX block, but let's say on average 18s we have a LayerX block. (Sometimes 12, sometimes 24, averaging out to a 18 time.)
 - `startBlockProposeTime` and `upperDevToBlockProveTime` -> It means, when should proofs come? 1600 + 800 means, somewhere between 1600 - 2400 respective to each block proposal. (If you set the `blocksToSimulate` to a small number, don't forget to change these + `PROOF_TIME_TARGET` to a reasonable level - like a testnet scenario - e.g.: 180 - 240 sec / proof)
 
 ## Observations

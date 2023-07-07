@@ -40,7 +40,7 @@ const ecosystemData: EcosystemData[] = [
     icon: "/images/ecosystem/taiko.svg",
     name: "Bridge",
     link: "https://bridge.test.layerx.build",
-    description: "Bridge is a dapp that lets you bridge tokens with Taiko.",
+    description: "Bridge is a dapp that lets you bridge tokens with LayerX.",
     filters: [],
   },
   {
@@ -72,7 +72,7 @@ const ecosystemData: EcosystemData[] = [
     name: "MXC",
     link: "https://wannsee.mxc.com/docs/intro",
     description:
-      "Layer3 IoT app chain built using Taiko's open source software.",
+      "Layer3 IoT app chain built using LayerX's open source software.",
     filters: [],
   },
   {
@@ -118,12 +118,12 @@ const ecosystemData: EcosystemData[] = [
     icon: "/images/ecosystem/taiko.svg",
     name: "Swap",
     link: "https://swap.test.layerx.build",
-    description: "Swap is a dapp that lets you swap tokens on Taiko.",
+    description: "Swap is a dapp that lets you swap tokens on LayerX.",
     filters: [],
   },
   {
     icon: "/images/ecosystem/taiko-dashboard.png",
-    name: "Taiko Node Dashboard",
+    name: "LayerX Node Dashboard",
     link: "https://github.com/wolfderechter/taiko-node-dashboard-docker",
     description:
       "A user friendly, easy to read, and visually pleasing dashboard for those running a Node/Proposer/Prover.",

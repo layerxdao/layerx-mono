@@ -1,6 +1,6 @@
-# Taiko protocol
+# LayerX protocol
 
-This package contains rollup contracts on both L1 and L2, along with other assisting code. Taiko L2's chain ID is [167](https://github.com/ethereum-lists/chains/pull/1611).
+This package contains rollup contracts on both L1 and L2, along with other assisting code. LayerX L2's chain ID is [167](https://github.com/ethereum-lists/chains/pull/1611).
 
 ## Deploy
 
@@ -32,7 +32,7 @@ Start by creating a `config.json`, for example:
 {
   // Owner address of the pre-deployed L2 contracts.
   "contractOwner": "0xDf08F82De32B8d460adbE8D72043E3a7e25A3B39",
-  // Chain ID of the Taiko L2 network.
+  // Chain ID of the LayerX L2 network.
   "chainId": 167,
   // Account address and pre-mint ETH amount as key-value pairs.
   "seedAccounts": [
